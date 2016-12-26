@@ -1,5 +1,6 @@
 var request = require('request');
 var fs = require('fs');
+var _ = require('underscore')
 
 var numbers = JSON.parse(fs.readFileSync('keno.json', 'utf8'));
 var draws = numbers.draws
@@ -22,7 +23,6 @@ for (i = 0; i < length; i++) {
   for (x = 0; x < res.length; x++) {
     var thisNum = res[x];
     thisNum = parseInt(thisNum)
-    // console.log(thisNum)
     counts[thisNum]++
   }
   var thisBonus = draws[i].bonus
@@ -43,10 +43,15 @@ for (i = 0; i < length; i++) {
   }
 }
 
+var ratios = []
 for (i = 0; i < counts.length; i++) {
-  var ratio = ((counts[i] / length) * 100).toFixed(2) + '%';
-  console.log('Number: ', i, 'ratio: ', ratio)
+  var ratio = ((counts[i] / length) * 100).toFixed(2);
+  ratios.push({number: i, ratio: ratio})
 }
+
+var sortedObjs = _.sortBy( ratios, 'ratio' );
+console.log('Numbers Sorted by Percentage\n\n', sortedObjs)
+
 
 var noneRate = ((none / length) * 100).toFixed(2) + '%';
 var threeRate = ((three / length) * 100).toFixed(2) + '%';
