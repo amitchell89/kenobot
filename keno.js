@@ -49,8 +49,14 @@ for (i = 0; i < counts.length; i++) {
   ratios.push({number: i, ratio: ratio})
 }
 
-var sortedObjs = _.sortBy( ratios, 'ratio' );
-console.log('Numbers Sorted by Percentage\n\n', sortedObjs)
+var byRatio = _.sortBy( ratios, 'ratio' );
+
+var aboveAverage = byRatio.filter(function(i) {
+ return i.ratio > 25
+})
+
+console.log('Numbers Sorted by Percentage\n\n', aboveAverage)
+console.log('\n', aboveAverage.length + ' Numbers drawing above average (25%)')
 
 
 var noneRate = ((none / length) * 100).toFixed(2) + '%';
