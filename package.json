@@ -9,6 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "file-system": "^2.2.1"
+    "body-parser": "^1.15.2",
+    "cron": "^1.2.1",
+    "express": "^4.14.0",
+    "file-system": "^2.2.1",
+    "forever": "^0.15.3",
+    "helmet": "^3.3.0",
+    "path": "^0.12.7",
+    "request": "^2.79.0",
+    "underscore": "^1.8.3"
   }
 }
