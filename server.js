@@ -20,8 +20,8 @@ app.listen(3002, function () {
   console.log('Site listening on port 3002!')
 })
 
-new CronJob('* 30 1 * * *', function() {
+// server time is in GMT (5 hours ahead of EST) This will scrape at 130 AM EST (830 PM GMT)
+new CronJob('0 30 20 * * *', function() {
   console.log('Printing Keno Numbers');
   spawn('node', ['print.js']);
 }, null, true, 'America/New_York');
-
