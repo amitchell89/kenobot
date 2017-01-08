@@ -10,6 +10,7 @@ var _ = require('underscore')
 var numbers = []
 var directory = 'results/'
 
+
 fs.readdir(directory, (err, files) => {
   files.forEach(file => {
     var num = JSON.parse(fs.readFileSync(directory + file, 'utf8'));
