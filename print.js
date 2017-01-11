@@ -12,7 +12,6 @@ request(url, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     var results = body;
     console.log(results.length)
-    printFile('keno.json', results)
     printFile('results/' + currentDate + '_results.json', results)
   }
 })
