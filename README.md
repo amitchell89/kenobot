@@ -13,6 +13,11 @@ A Node App for scraping and analyzing Massachusetts Keno Data.
 
 Results are pulled from [this location](http://www.masslottery.com/data/json/search/dailygames/todays/15.json). Script may need to be updated if this url changes.
 
+## Express Server
+Kenobot runs on an express server that uses a CRON job to automatically scrape data and nodemailer to send an email alert upon scraping. 
+
+Run `USER=<email_address> SERVICE=<email_client> PASSWORD=<email_password> node server.js` to start the server. The enviornment variables are used to configure nodemailer. 
+
 ## How Keno Works
 
 Winning numbers are drawn approximately every four minutes. Players select from 1 to 12 numbers or “spots” for each game. A computer then randomly chooses 20 winning numbers from 1 to 80 and displays them on a Keno monitor. Prizes are awarded based on the number of matching numbers.
