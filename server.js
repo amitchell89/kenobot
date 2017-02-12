@@ -26,7 +26,7 @@ app.listen(3002, function () {
 })
 
 // server time is in GMT (5 hours ahead of EST) This will scrape at 130 AM EST (830 PM GMT)
-new CronJob('00 05 06 * * *', function() {
+new CronJob('00 15 06 * * *', function() {
   console.log('Printing Keno Numbers');
   var env = Object.create( process.env );
   env.USER = process.env.USER || null
